@@ -27,6 +27,13 @@ if etcd_dep.found()
                include_directories: [nixl_inc_dirs, utils_inc_dirs],
                link_with: [serdes_lib],
                install: true)
+
+    two_machine_example = executable('nixl_two_machine_example',
+               'nixl_two_machine_example.cpp',
+               dependencies: [nixl_dep, nixl_infra, nixl_common_deps, nixl_test_utils_dep],
+               include_directories: [nixl_inc_dirs, utils_inc_dirs],
+               link_with: [serdes_lib],
+               install: true)
 endif
 
 telemetry_reader = executable('telemetry_reader',
